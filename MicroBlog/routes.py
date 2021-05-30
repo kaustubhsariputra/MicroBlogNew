@@ -8,7 +8,7 @@ import os
 from flask_mail import Message
 from MicroBlog import response, sports
 
-posts = Post.query.order_by(Post.date_posted.desc()).paginate(per_page=6)
+
 news_data = response.json()
 sports_news = sports.json()
 news = news_data['articles']
