@@ -5,6 +5,7 @@ from flask_bcrypt import Bcrypt
 from flask_login import LoginManager
 import requests
 from flask_mail import Mail
+import re
 
 
 uri = os.getenv("DATABASE_URL")  # or other relevant config var
