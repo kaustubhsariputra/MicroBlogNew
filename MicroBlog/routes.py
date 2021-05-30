@@ -15,7 +15,7 @@ news = news_data['articles']
 spo_info = sports_news['articles']
 k = len(news)
 l = len(spo_info)
-@app.route('/home')
+@app.route('/')
 @login_required
 def home():
 
@@ -38,7 +38,7 @@ def sign_up():
         return redirect(url_for('home'))
     return render_template("signup.html", form = form, title = 'Sign Up Page')
 
-@app.route('/', methods =['GET', 'POST'])
+@app.route('/login', methods =['GET', 'POST'])
 def log_in():
     if current_user.is_authenticated:
         return redirect(url_for('home'))
