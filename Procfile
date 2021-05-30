@@ -1,1 +1,1 @@
-web: gunicorn run:app
+web: gunicorn MicroBlog.run:app
