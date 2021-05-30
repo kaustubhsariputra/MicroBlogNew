@@ -8,19 +8,18 @@ import os
 from flask_mail import Message
 from MicroBlog import response, sports
 
-
+posts = Post.query.order_by(Post.date_posted.desc()).paginate(per_page=6)
+news_data = response.json()
+sports_news = sports.json()
+news = news_data['articles']
+spo_info = sports_news['articles']
+k = len(news)
+l = len(spo_info)
 @app.route('/')
 @login_required
 def home():
 
     page = request.args.get('page', 1, type= int)
-    posts = Post.query.order_by(Post.date_posted.desc()).paginate(per_page=6)
-    news_data = response.json()
-    sports_news = sports.json()
-    news = news_data['articles']
-    k = len(news)
-    spo_info = sports_news['articles']
-    l = len(spo_info)
     return render_template("home.html" , title = 'Home', posts = posts, news=news, k=k, spo_info=spo_info, l=l)
 
 @app.route('/signup', methods =['GET', 'POST'])
