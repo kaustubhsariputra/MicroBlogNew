@@ -20,6 +20,7 @@ l = len(spo_info)
 def home():
 
     page = request.args.get('page', 1, type= int)
+    posts = Post.query.order_by(Post.date_posted.desc()).paginate(page=page, per_page=5)
     return render_template("home.html" , title = 'Home', posts = posts, news=news, k=k, spo_info=spo_info, l=l)
 
 @app.route('/signup', methods =['GET', 'POST'])
