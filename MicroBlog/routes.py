@@ -6,8 +6,8 @@ from flask_login import login_user, current_user, logout_user, login_required
 import secrets
 import os
 from flask_mail import Message
+from MicroBlog import response, sports
 
-from MicroBlog.newsapi import news_data, sports_news
 
 @app.route('/')
 @login_required
@@ -15,6 +15,8 @@ def home():
 
     page = request.args.get('page', 1, type= int)
     posts = Post.query.order_by(Post.date_posted.desc()).paginate(per_page=6)
+    news_data = response.json()
+    sports_news = sports.json()
     news = news_data['articles']
     k = len(news)
     spo_info = sports_news['articles']
