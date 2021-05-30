@@ -1,0 +1,59 @@
+{%extends "layout.html"%}
+{%block left%}
+
+
+    <section class="container" >
+
+            <header >
+                <h2>News Update</h2>
+            </header>
+        <div id="left-bar" class="overflow-auto">
+            <ul class="link-list">
+                {%for n in range(0,k):%}
+                <li><a href="{{news[n]['url']}}" TARGET="_blank">{{news[n]['title']}}</a></li>
+
+                <p >
+                    {{news[n]['content']}}
+                </p>
+                <p>
+                    {{news[n]['author']}}
+                </p>
+                {%endfor%}
+
+            </ul>
+        </div>
+    </section >
+
+    {%endblock left%}
+    {%block right%}
+    <section class="container">
+
+            <header>
+                <h2>Sports Update</h2>
+            </header>
+        <div id="right-bar" class="overflow-auto">
+            <ul class="link-list">
+
+                {%for n in range(0,l)%}
+                <li><a href={{spo_info[n]['url']}} TARGET="_blank">{{spo_info[n]['title']}}</a></li>
+
+                <p >{{spo_info[n]['content']}}</p><br><p>{{spo_info[n]['name']}}</p>
+
+                {%endfor%}
+            </ul>
+        </div>
+    </section>
+
+    {%endblock right%}
+
+
+        {% block content %}
+
+        {%for post in posts%}
+
+            <section id="post-size">
+                <h5> Post Created</h5>
+            </section>
+        {%endfor%}
+
+    {% endblock content %}
