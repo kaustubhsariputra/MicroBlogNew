@@ -12,12 +12,13 @@ from MicroBlog.newsapi import news_data, sports_news
 @app.route('/')
 @login_required
 def home():
+
+    page = request.args.get('page', 1, type= int)
+    posts = Post.query.order_by(Post.date_posted.desc()).paginate(per_page=6)
     news = news_data['articles']
     k = len(news)
     spo_info = sports_news['articles']
     l = len(spo_info)
-    page = request.args.get('page', 1, type= int)
-    posts = Post.query.order_by(Post.date_posted.desc()).paginate(per_page=6)
     return render_template("home.html" , title = 'Home', posts = posts, news=news, k=k, spo_info=spo_info, l=l)
 
 @app.route('/signup', methods =['GET', 'POST'])
