@@ -5,11 +5,9 @@ from flask_bcrypt import Bcrypt
 from flask_login import LoginManager
 import requests
 from flask_mail import Mail
-import re
 
-uri = os.getenv("DATABASE_URL")  # or other relevant config var
-if uri.startswith("postgres://"):
-    uri = uri.replace("postgres://", "postgresql://", 1)
+
+uri = 'postgresql://rnxqvgimivpeis:d6ace147b3b71b962bbcc26f1e93672e24eac2772a4be154f97943bd005ffef7@ec2-54-90-211-192.compute-1.amazonaws.com:5432/d4b5unvngol1od'
 
 app = Flask(__name__)
 app.config['SECRET_KEY']= os.environ.get('SECRET_KEY')
