@@ -7,7 +7,9 @@ import requests
 from flask_mail import Mail
 
 
-uri = 'postgresql://rnxqvgimivpeis:d6ace147b3b71b962bbcc26f1e93672e24eac2772a4be154f97943bd005ffef7@ec2-54-90-211-192.compute-1.amazonaws.com:5432/d4b5unvngol1od'
+uri = os.getenv("DATABASE_URL")  # or other relevant config var
+if uri.startswith("postgres://"):
+    uri = uri.replace("postgres://", "postgresql://", 1)
 
 app = Flask(__name__)
 app.config['SECRET_KEY']= os.environ.get('SECRET_KEY')
