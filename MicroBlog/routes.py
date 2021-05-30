@@ -7,7 +7,7 @@ import secrets
 import os
 from flask_mail import Message
 
-from newsapi import news_data, sports_news
+from MicroBlog.newsapi import news_data, sports_news
 
 @app.route('/')
 @login_required
