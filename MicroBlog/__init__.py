@@ -3,7 +3,7 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
 from flask_login import LoginManager
-import requests
+
 from flask_mail import Mail
 import re
 
@@ -30,7 +30,5 @@ app.config['MAIL_PASSWORD'] = os.environ.get('password')
 mail = Mail(app)
 
 
-response = requests.get(f"https://newsapi.org/v2/top-headlines?country=in&apiKey={os.environ.get('newsapikey')}")
-sports =  requests.get(f"https://newsapi.org/v2/top-headlines?country=in&category=sports&apiKey={os.environ.get('newsapikey')}")
 
 from MicroBlog import routes

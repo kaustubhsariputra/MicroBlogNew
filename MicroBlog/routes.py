@@ -5,9 +5,12 @@ from MicroBlog.models import User, Post
 from flask_login import login_user, current_user, logout_user, login_required
 import secrets
 import os
+import requests
 from flask_mail import Message
-from MicroBlog import response, sports
 
+
+response = requests.get(f"https://newsapi.org/v2/top-headlines?country=in&apiKey={os.environ.get('newsapikey')}")
+sports =  requests.get(f"https://newsapi.org/v2/top-headlines?country=in&category=sports&apiKey={os.environ.get('newsapikey')}")
 
 news_data = response.json()
 sports_news = sports.json()
