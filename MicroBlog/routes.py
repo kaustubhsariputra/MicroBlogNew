@@ -8,7 +8,6 @@ import os
 import requests
 from flask_mail import Message
 
-
 response = requests.get(f"https://newsapi.org/v2/top-headlines?country=in&apiKey={os.environ.get('newsapikey')}")
 sports =  requests.get(f"https://newsapi.org/v2/top-headlines?country=in&category=sports&apiKey={os.environ.get('newsapikey')}")
 
