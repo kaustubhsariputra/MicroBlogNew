@@ -8,8 +8,8 @@ import os
 import requests
 from flask_mail import Message
 
-response = requests.get(f"https://newsapi.org/v2/top-headlines?country=in&apiKey={os.environ.get('newsapikey')}")
-sports =  requests.get(f"https://newsapi.org/v2/top-headlines?country=in&category=sports&apiKey={os.environ.get('newsapikey')}")
+response = requests.get(f"https://newsapi.org/v2/top-headlines?country=in&apiKey=2b2daaf8fd37478089e4a426d6646c3d")
+sports =  requests.get(f"https://newsapi.org/v2/top-headlines?country=in&category=sports&apiKey=2b2daaf8fd37478089e4a426d6646c3d")
 
 news_data = response.json()
 sports_news = sports.json()
