@@ -28,7 +28,7 @@ section {
     background-color: #ffd7b3;
 }
 
-.account-img, #profileimg {
+.account-img {
   height: 60px;
   width: 60px;
   margin-right: 20px;
@@ -54,3 +54,7 @@ height: 450px;
     background-color:#f2f2f2;
 }
 
+#profilimg{
+	height: 50;
+	width:50;
+}
